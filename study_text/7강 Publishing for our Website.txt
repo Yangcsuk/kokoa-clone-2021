@@ -1,0 +1,14 @@
+7.0 Branches on Git
+  - Branch란 Git에서 평행 프로젝트를 만들어주는 가장 강력한 기능이다.
+  - 기본 Branch(Main)과 평행 프로젝트를 합쳐주는 방법 : Branch -> Merge into current Branch
+  - 작업방법 : 기본(Main) Branch는 놔두고 평행 Branch에서 작업하고 이상 없으면 Commit 후 merge 하기!!
+	=> 다른 사람들과 협업 및 프로젝트를 하기 위해서 앞으로 몸에 익혀야 할 방법으로 판단된다.
+
+7.1 Publishing on Github Pages
+  - github에서 특별한 이름의 branch를 가지고 있으면, Github에서 공짜로 Static 호스팅을 해줌
+   -> 누구나 자신의 웹사이트를 무료로 업로드 할 수 있고, 공짜 URL을 제공해줌
+   -> Static 웹사이트란 HTML, CSS, JavaScript로만 이루어진 간단한 사이트를 의미한다(Front End만 가능)
+
+7.2 Updating Github Pages
+  1) master branch에서 수정-> commit -> push
+  2) gh-pages branch변경-> branch  -> update from master -> push

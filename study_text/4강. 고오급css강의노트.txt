@@ -1,0 +1,49 @@
+4.0 Transition
+ - 정의 : 어떤상태에서 다른상태로의 "변화"를 애니매이션으로 만드는 방법
+ - Transition은 hover와 같은 state가 없는 기본(root)요소에 붙어야 함(특히 hover와 active가 잘어울림)
+ 예제) 기존 태그에 hover 상태(state) 변화를 통해서 background-color 색을 변경하도록 미리 세팅해줘야 함
+        거기에 다음 내용을 기본 태그에 넣으면 됨
+	1) transition : background-color 1s ease-in-out; 배경색을 1초 동안 스무스하게 바꿈
+	2) transition : all 1s ease-in-out; 모든 세팅을 1초 동안 스무스하게 바꿈
+
+4.1 Transition Part Two
+ - 해당 홈페이지에서 많은 Transition예제 확인가능 : https://matthewlein.com/tools/ceaser
+ - 위 홈페이지에서 custum된 transition 추출가능 cubic-bezier(0.xxx, 0.xxx, 0.xxx, 0.xxx) ;
+   쓸만한 예제) easeInOutCirc, easeInBack
+
+4.2 Transformations
+ - CSS는 GPU를 사용하여 이미지를 3D로 인식하여 3축(x, y, z)을 360도(deg) 휙휙돌릴 수 있다.
+   (= 자바스크립트를 사용하지 않고도 멋진 효과를 줄 수 있다!!)
+ - 꿀팁) border-radius : 50% <<< 테두리를 원으로 만들 수 있다.
+ - 실제 이미지 파일을 그냥 돌리는 것이 아니라 트랜지션과 함께 써서 돌린다.(아래 예제 참조)
+   예제) <img src="img/logo.png" />  # 이미지 파일 불러오기
+	img { transition : transform 2s ease-in-out ; }
+	img: hover { transform(all) : rotateX(720deg) ; }
+	-> 이미지에 마우스를 올려놓으면 x축 방향으로 2초간 세바퀴 돌려버리기
+ - 중요한 것은 MDN 홈피에서 transform 항목에서 이것저것 써보고 적용할 수 만 있으면 된다.
+
+4.3 Animations Part One
+ - 앞에서 배웠던 것은 마우스를 올리거나 클릭해야만 바뀌는 건데, 계속 움직이는 이미지를 가지고 싶다!!
+  @keyframes aniName {
+     from { transform : rotateX(0deg) ; }
+     to    { transform : rotateX(360deg); } }
+   img { animation : aniName 3s ease-in-out infinite; }
+
+4.4 Animations Part Two
+ - 앞에서 배웠던 from ~ to (2단계) 에서 0%, 50%, 100%(3단계)등 n단계도 가능하다!!
+ - transform 말고도 property도 있으나 동작안되는 경우도 있으니 그냥 transform만 사용하자
+ - 자주사용할 명령어 opacity = 0(투명도 100%) 보였다가 안보였다가 하는 기능임
+
+4.5 Media Queries(반응형 웹사이트 만들기 첫걸음)
+ - 오직 CSS만을 이용해서 사용자의 스크린의 사이즈를 알 수 있다.(웹인지?, 폰(가로/세로)인지?)
+ - 사용자가 아이폰, 4k, 갤럭시(가로/세로)일때 보여주는 모양을 다르게 만들 수 있다.(media query)
+ - 예제 1) @media screen and (max-width : 800px) { div { background-color : tomato; } }
+ 	-> 800픽셀보다 스크린이 작으면 div 색깔은 토마토 색으로 바꿔라!!
+ - 예제 2) @media screen and (min-width : 800px) { div { background-color : tomato; } }
+ 	-> 800픽셀보다 스크린이 크면 div 색깔은 토마토 색으로 바꿔라!!
+ - 브라우저 개발자모드(F12) 누르면 좌측상단에 폰모양(Toggle Device Toolbar)을 누르면,
+   해당 페이지가 폰에서 실제로 어떻게 보이는 지 알 수 있음
+ - 예제 3) @media screen and (orientation : landscape 또는 portrait) #가로/세로 스크린 감지가능
+
+4.6 Media Queries Recap
+ - CSS media query MDN 구글에서 검색하면 모든 기능을 확인할 수 있다.

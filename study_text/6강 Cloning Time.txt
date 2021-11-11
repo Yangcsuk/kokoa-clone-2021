@@ -1,0 +1,139 @@
+단축 키 모음
+ - Alt + 클릭 = 동시에 입력 가능
+ - Alt + 화살표(위아래) = 한줄을 위아래로 옮기기
+ - header 태그 안에서 link:css를 치고 엔터를 치면 자동으로 css링크를 생성해준다.
+ - Ctrl + D = 동일한 이름을 가진 문장을 전부 클릭해줌
+
+6.1 Sign UP Sreen Part 1
+ - 대문 html 파일명은 index.html이다.
+ - VSC하단에 Prettier 활성화(더블체크) 및 HTML언어 세팅시켜준다
+ - 문서 처음 느낌표"!"를 누르면 첫문장 세팅이 자동으로 된다
+ - 첫 대문화면 상태창(status bar)에 세 개의 열(column)이 있고 이걸 각 class로 나눠준다
+   -> 클래스 이름 : 상태창(status-bar), 세 개의 열(status-bar__column) : 좀 길지만 나중에 헷갈리지 않음
+
+6.2 BEM
+ - BEM(Block Element Modifier)
+   -> html에서 개발자들이 id와 class를 헷갈려 해서 합치려 하였으나, css를 통해서 구분이 가능하게 바뀜
+   -> BEM을 싫어하는 개발자들도 있고 좋아하는 개발자들도 있으나, 협업을 위해선 있는게 좋다고 판단됨(내생각)
+   -> https://nykim.work/15 BEM에 대해 한국어로 정리도 참조해 보자
+
+6.3 Font Awesome
+ - 아이콘 구하기
+   1) heroicons.dev(무료) -> 아이콘 클릭하면 복사되고, html 코드에 그냥 붙여넣으면 됨(이미지가 아니고 코딩임)
+   2) fontawesome(부분무료) -> 자바스크립트를 Body 맨 마지막 줄에 붙여넣자
+      추가정보 : 아이콘 입력줄 마지막에 fa-xx(lg, 2x, 3x....)이렇게 추가하면 크기를 조절할 수 있다.
+
+6.4 Sign Up Screen Part 2
+ - CSS 기본이지만 다시한번강조 : class는 .(dot), id는 #(샾), 태그는 앞에 붙이는 문자가 없다
+
+6.5 Status Bar
+ - Font추가하는 법 : font-family: 누르면 많이 뜸(니코샘은 -apple system- 을 자주 사용함)
+   -> 추가로 많이 쓰는 폰트 google open sans(regular 400, semi-bold 600), 너무 많이 추가하면 느려짐
+ - CSS Hack이란? 정규문법은 아닌데 유용하게 써먹을 수 있는 팁!!(justify-content대신사용가능)
+   1) 상위 박스 : justify-content: center; -중앙으로 몰림
+   2) 내부 박스 범위 : width: 33%; -왼쪽으로 몰려서 범위 벌어짐, 왼쪽 위치할 박스는 왼쪽에 붙어서 정렬됨
+   3) 중앙에 위치할 박스 : display: flex; justify-content: center; -중앙에 위치할 박스만 중앙에 위치함
+   4) 오른쪽에 정렬할 박스 : *display*: flex; *justify-content*: flex-end; *align-items*: center; -오른쪽에 붙어서 정렬됨
+
+6.6 Sign Up Screen part 3
+ - Reset CSS 2.0을 복사 Defualt로 적용되는 Margin 등을 없애고 싶다!!
+   !!핵심!! -> 프론트엔드 개발자들은 HTML 기본 세팅보다 Reset으로 모든것을 처음부터 직접 디자인 한다
+ - reset.css파일을 만들어 styles.css에서 import하자(@import "reset.css")
+
+6.7, 6.8 Log In Form part 1~2(Not BEM)
+ - (기본!!중요!!) 세로줄로 정렬 시키기 display : flex; + flex-direction : column;
+ - log in form 클릭해도 아웃라인 안생기게 하는방법 css -> input : focus { outline : none ; }
+ - css : not  뜻 : 이것을 제외한 나머지에 적용하고 싶어요
+   #login-form input:not([type="submit"]) { 명령어 } -> login-form 중에서 submit 타입 빼고 적용
+ - cursor : pointer, not allowed, progress 등등 마우스 커서모양도 바꿀 수 있다.
+
+6.9 Recap and Forms
+ - #login-form(No BEM) ... 으로 썼지만, .login-from___(BEM) ... 으로 써도된다. 더 편한 방식을 택하면 된다.
+   ->  !!내결론!! : not을 사용하는 등 직관적이지 못함. BEM이 직관적 구분이 가능하여 코딩이 길어지더라도 좋다
+ - CSS 파일에서 주석처리는 /* */로 감싸주면 된다.
+ - styles.css 파일에는 font-family와 같이 모든 스크린에 적용될 수 있는 스타일을 써놓는다.
+   ( or 모든 스크린의 background-color) 이는 하나의 방식이고, 자신만의 편한 방식을 택하면 된다.
+ - form은 중요한 2가지 속성(attribute)을 가지고 있다. 하나는 action이고, 다른 하나는 method이다.
+ - action은 어떤 페이지로 data를 보낼건지 지정할 수 있다.
+ - action에 적어 놓은 URL에 해당하는 파일이 반드시 존재해야한다.
+ - method는 2가지 방식 중 하나를 쓸 수 있다. 하나는 POST이고, 다른 하나는 GET이다.
+ - POST는 백엔드 서버에 정보를 전송하는 방식이라 이번 강의에서는 사용할 수 없다.
+ - GET 방식은 보안에 취약하다. username이랑 password를 GET 방식으로 보내선 안된다.
+
+6.10 Navigation Bar Part 1
+ - navigation 안의 ul 안에 많은 li들로 구성되는데, 검색엔진 구글도 navigation을 찾아서
+   ul의 li 안에 있는 link를 가져오게끔 설정되어 있다.
+ - VSC의 단축키로 navigation에서 하위메뉴까지 한번에 자동 완성 시킬 수 있다.
+	→ nav>ul>li*(필요한 갯수)>a
+	→ 그 후 #과 tab만으로 간편하게 작성이 가능하다.(수정하다보면 다음 tab이 옳게 먹히지 않는다.)
+ - 속성과 class 이름이 똑같아도 상관없다.
+ - 메인 styles.css에 다른 요소의 css를 import 할 때, 순서를 지키는 것이 정말 중요하다.
+
+6.11 Navigation Bar Part 2
+  - 하단에 위치를 고정 시키기
+  - position : fixed
+  - 배열이 깨지는 경우 width : 100% 설정
+  - 고정할 위치 (아래 인 경우 bottoom : 0;)과 같이 설정
+  - box-sizing:border-box를 사용해 아이콘들이 한 줄로 보이게 함
+
+6.12 Border Box
+  - css box padding의 디폴트 원리
+  - 200px의 박스에 50px의 패딩을 주면, css는 기존 박스의 가로를 유지하기 위해 50px만큼 박스를 늘림(250px)
+  - 이를 막기 위해 box-sizing:border-box를 쓰면 box의 크기를 유지한 채 padding을 줄 수 있다.
+
+6.13 Navigation Bar part 3
+  - 머리로 이해가 되지 않는 부분 복습하기(3강 css 11~13편)
+	1) justify-content : center 
+	2) align-items : center
+	3) display : flex
+	4) position : absolute
+
+6.14 Screen Header
+  - 이젠 기술적인 내용들은 반복되고, 점점 익숙해지고 있다. 댓글 내용들을 계속 잘 읽고 더 많이 이해하자
+
+6.15 Friends Screen Part 1
+  - 모든 글자들이 검은색으로 보이지만 약간 회색빛을 띄고있다.(styles.css파일 body color:#2363e로 변경)
+  - 화살표 아이콘은 Font awesome에서 chevron으로 검색하면됨
+  - 수업엔 없음 : nav-bar와 screen-header 배경색을 white로 넣어 투명을 방지함(디테일)
+
+6.16~17 User Component Part 1 ~2
+  - 동시에 두개의 DIV(클래스)를 만드는 방법 .user-componenet__column*2(엔터)
+  - user-comp 클래스 display를 flex 하고, user-comp__column : first-child display flex내용이 이해되지 않음
+    -> 이해되었음, 여러개의 user-comp__column 중 첫번째 class(first-child)만 선택해서 스타일을 지정해줌
+  - 프로필 사진은 큰것(본인), 작은것(친구들), 중간것(채팅창용) 이렇게 세 종류가 있다.
+
+6.18 Finishing Friends Screen
+  - 이젠 사진 보면서 여백 등 조절(adjust)해줌. 단, div 지옥으로 정말 헷갈림 잘 따라가야됨
+
+6.19~20 Chats Screen part 1~2
+  - main-screen클래스의 margin-top을 92px 주었음(니꼬샘과 다른 점) 주의할 것!!
+  - 하나의 엘레멘트에 두개의 클래스 적용이 가능함 <span class="nav__notification badge">1</span>
+
+6.21~24 Find Screen part 1~4
+  - user-component.css 의 user-component 안에 bottom-margin을 추가해서 채팅창 간격을 넣어보자!!(숙제)
+  - .find-icons__icon i { font-size: 35px; } : 아이콘들의 아이콘 안에 있는 아이콘 크기를 35pixel로 선언
+  - html에 직접 대문자를 써도 되지만, 대문자도 디자인 적인 요소이므로 css에 적용하는것이 원칙이다!
+    (text-transform : uppercase)
+  - absolute children은 relative father가 꼭 필요하다!
+    .open-post__heart-count { position: absolute; } -> 자식이 absolute를 썼으면
+    .open-post__photo { position: relative; } -> 부모(father)가 relative여야 한다
+
+6.25~26 More Screen part 1~2
+  - 앞에서 했던 내용들 반복....
+
+6.28~33 Chat Screen part 1~5
+  - z-index를 통해서 각 div의 layer 순서를 정할 수 있음(기본값은 0) 숫자가 많을 수록 뒤로 쳐짐
+   (파워포인트에서 객체를 맨앞으로, 맨뒤로 하는 레이어 개념이라고 볼 수 있음)
+  - border-top-left-radius 처럼 꼭지점(좌상단) 하나를 특정해서 radius를 줄 수도 있다.
+
+6.34~35 Splash Screen Part 1~2
+  - CSS의 keyframes 애니메이션으로 splash 애니메이션을 줄 수는 있지만,
+    완벽하게 없어진 상태를 만들 수는 없다. 때문에 JavaScript가 필요하다.
+  - 애니메이션의 마지막 값을 기억하고 싶다면 forwards라는 단어를 사용해야한다. 
+    → 마지막 keyframes를 기억한다.
+  - animation-delay로 약간 지연 시킬 수 있다.
+
+6.37 More Animations
+ - will-change는 애니메이션이 좀 더 부드럽게 동작할 수 있게 한다.
+    → 브라우저에게 어떤 것이 변할 것인지 예고해주는 것
+ - will-change는 그래픽 카드를 이용해서 애니메이션을 가속화 한다.
