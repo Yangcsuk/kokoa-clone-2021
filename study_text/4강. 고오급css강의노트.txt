@@ -30,6 +30,7 @@
    img { animation : aniName 3s ease-in-out infinite; }
 
 4.4 Animations Part Two
+ - 예제들은 https://animista.net/ 에서 좋은걸 참조하자
  - 앞에서 배웠던 from ~ to (2단계) 에서 0%, 50%, 100%(3단계)등 n단계도 가능하다!!
  - transform 말고도 property도 있으나 동작안되는 경우도 있으니 그냥 transform만 사용하자
  - 자주사용할 명령어 opacity = 0(투명도 100%) 보였다가 안보였다가 하는 기능임

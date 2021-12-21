@@ -8,7 +8,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     (왜? 다른 HTML페이지에서도 사용가능하므로)
 
 2강 CSS문법규칙
-  1)selector : 태그(tag)에 속성(property)을 선언해준다(초록색, 크기 등등..)
+  1) h1 { color : blue };  h1(selector, 선택자), color(property, 속성), blue(value, 값)
+  1) selector : 태그(tag)에 속성(property)을 선언해준다(초록색, 크기 등등..)
       footer {
         color: red;
         text-decoration: underline;
@@ -71,17 +72,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     왜? 반응형 디자인(Responsive Design)을 지원하지 않으므로 -> Flex를 배워야지 그럼
 
 10~11강 Flexbox
-  - 채신 기술로 유연하게 작동하고 세가지 정도 규칙이 있음
-    1) 자식 element에는 어떤 것도 적지 말아야 된다. 부모 element만 명시해야 함
+  - 먼저 알아야 할 것
+    0) 주축(main axis) - 수평(default), 교차축(cross axix) - 수직(default)(가로축, 세로축이 아니다. 왜? 바꿀 수 있음)
+    1) 부모 element에 명시해야 함. 자식 element에는 어떤 것도 적지 말아야 된다.
        - 예) 부모 element는 <body>, 자식 elemnet는 <body>안에 있는<div>
        - 예) 조부모 element : <body>, 부모 element : <div>, 자식 element : <태그>, 글자 등...
-    2) 주축(main axis)과 교차축(cross axis)을 다룬다(가로축, 세로축이 아니다. 왜? 바꿀 수 있음)
-    3) 교차축을 다룰 때는 body에 높이(height)를 정의할 것(100vh)
-  - justify-content : space-between; 주축에 균등분배(한글 열맞춤 기능과 비슷)
-  - align-items: center; 교차축 가운데 배치(한글 세로축 정렬)
-    유의사항) body를 100vh로 먼저해둘것(vh :  viewport height %)
-  - 100vh만 설정하면 스크롤바가 생김. 왜?(기본margin이 8px이므로-> margin:0으로하면 됨)
-  - flex-direction:row;(기본값, 주축-수평 교차축-수직), :column(주축-수직, 교차축-수평)
+    2) 교차축을 다룰 때는 body에 높이(height)를 정의할 것(height=100vh + margin:0)
+  - 주축 변환 : flex-direction : row;(기본값, 주축-수평 교차축-수직), :column(주축-수직, 교차축-수평)
+  - 주축 정렬 : justify-content : space-between;양쪽으로 붙이기 space-evenly; 주축에 균등분배
+  - 교차축 정렬 : align-items : center; 교차축 가운데 배치(한글 세로축 정렬)
   - flex-wrap:nowrap;(기본값, block이 창보다 작아도 그냥 찌그려트림)
 	   :wrap;(block크기가 창보다 크면 inline-block처럼 하나씩 내림)
 
@@ -98,9 +97,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     - element가 '처음 생성된 위치'를 기준점으로,
       top bottom left right으로 위치를 조금씩 수정할 수 있다.
   4. position: absolute;
-    - 가장 가까운 relative 부모를 기준으로 이동
-    - position:relative; 를 해주면 부모가 된다.
-    - 없으면 body.
+    - 가장 가까운 relative 부모를 기준으로 이동, 부모 중 relative가 없으면 최종 상위 부모인 body에 연동된다.
   결론 : 앞으로 relative와 absolute를 연동하여 홈페이지 꾸밀 일이 많을 것이다
 
 14강 Pseudo Selectors Part1
