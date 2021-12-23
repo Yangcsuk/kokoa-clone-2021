@@ -5,7 +5,7 @@
  - Ctrl + D = 동일한 이름을 가진 문장을 전부 클릭해줌
 
 6.1 Sign UP Sreen Part 1
- - 대문 html 파일명은 index.html이다.
+ - 모든대문 html 파일명은 index.html이다.
  - VSC하단에 Prettier 활성화(더블체크) 및 HTML언어 세팅시켜준다
  - 문서 처음 느낌표"!"를 누르면 첫문장 세팅이 자동으로 된다
  - 첫 대문화면 상태창(status bar)에 세 개의 열(column)이 있고 이걸 각 class로 나눠준다
