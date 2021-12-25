@@ -82,6 +82,9 @@
   - 이를 막기 위해 box-sizing:border-box를 쓰면 box의 크기를 유지한 채 padding을 줄 수 있다.
 
 6.13 Navigation Bar part 3
+  - <span>은 inline으로 옆에 다른요소가 올 수 있고, 크기를 지정할 수 없다.
+    -> 크기를 지정하고 싶으면 display : block; 을 선언해서 inline을 block으로 바꾸면 된다.
+  - postion : absolute 는 가장 가까운 position : relative를 가진 부모를 기준으로 이동한다.
   - 머리로 이해가 되지 않는 부분 복습하기(3강 css 11~13편)
 	1) justify-content : center 
 	2) align-items : center
